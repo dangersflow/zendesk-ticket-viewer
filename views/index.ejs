@@ -78,11 +78,26 @@
         var i;
 
         $( "#prev" ).click(function() {
-            alert( "Handler for .click() called." );
+             $.post('/',
+                {
+                    nextUrl: data['links']['prev']
+                },
+                function(data, status, jqXHR){
+                   window.location.href = window.location.href;
+                }
+            )
         });
 
         $( "#next" ).click(function() {
-            alert( "Handler for .click() called." );
+            $.post('/',
+                {
+                    nextUrl: data['links']['next']
+                },
+                function(data, status, jqXHR){
+                   window.location.href = window.location.href;
+                }
+            )
+            
         });
 
         for (i = 0; i < coll.length; i++) {
