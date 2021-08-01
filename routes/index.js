@@ -20,16 +20,17 @@ router.get('/', function(req, res, next) {
             })
             .then((resp) => {
                 //console.log(JSON.stringify(resp.data));
-                console.log(resp.data)
+                console.log(resp.data);
                 data = resp.data;
                 res.render('index', { tickets: JSON.stringify(data) });
-                //console.log(res.data);
             })
             .catch((err) => {
-                console.error(err)
+                console.error(err);
                 res.render('error', { statusCode: err.response.status, statusText: err.response.statusText, data: err.response.data.error })
             })
     }
+
+
 });
 
 router.post('/', function(req, res, next) {
@@ -42,14 +43,14 @@ router.post('/', function(req, res, next) {
         })
         .then((resp) => {
             //console.log(JSON.stringify(resp.data));
-            console.log(resp.data)
+            console.log(resp.data);
             if (resp.data['tickets'].length > 0)
                 data = resp.data;
             res.render('index', { tickets: JSON.stringify(data) });
             //console.log(res.data);
         })
         .catch((err) => {
-            console.error(err)
+            console.error(err);
         })
 })
 

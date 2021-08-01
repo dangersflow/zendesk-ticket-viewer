@@ -3,18 +3,32 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "node ./bin/www"
+        "start": "node ./bin/www",
+        "test": "mocha test --timeout 15000 --exit"
     },
     "dependencies": {
         "axios": "^0.21.1",
+        "babel": "^6.23.0",
+        "babel-polyfill": "^6.26.0",
         "buffer": "^6.0.3",
+        "chai": "^4.3.4",
+        "chai-http": "^4.3.0",
         "cookie-parser": "^1.4.4",
         "debug": "^2.6.9",
         "ejs": "^3.1.6",
         "express": "^4.16.1",
         "http-errors": "^1.6.3",
         "https": "^1.0.0",
+        "mocha": "^9.0.3",
         "morgan": "^1.9.1",
         "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.14.8",
+        "@babel/core": "^7.14.8",
+        "@babel/node": "^7.14.7",
+        "@babel/polyfill": "^7.12.1",
+        "@babel/preset-env": "^7.14.8",
+        "@babel/register": "^7.14.5"
     }
 }
