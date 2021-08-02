@@ -21,6 +21,6 @@ Zendesk ticket viewer; contacts api, grabs JSON, then outputs it in a list on an
 
 ## Execution
 1. To start the application, perform the `npm start` command in the terminal
-    a. To view the application, on any browser, navigate to `localhost:3000`
+    1. To view the application, on any browser, navigate to `localhost:3000`
 2. To test the application, perform the `npm test` command in the terminal (when the application is not running)
-    a. All of the tests should currently pass.
+    1. All of the tests should currently pass.
