@@ -1,4 +1,7 @@
+//required modules
 var axios = require('axios');
+
+//Test class
 class Test {
 
     constructor(username, accessCode, statement) {
@@ -8,6 +11,7 @@ class Test {
         this.encoded = `${username}/token:${accessCode}`;
     }
 
+    //these next two functions are simply to test when we provide valid credentials, and when we don't provide valid credentials
     async getData(username, accesscode) {
         let data;
         let errorCode;
@@ -30,6 +34,26 @@ class Test {
         data = await response.data;
 
         return data;
+    }
+
+    async getWrongData(username, accesscode) {
+        let data;
+        let errorCode;
+
+        if (username && accesscode) {
+            this.encoded = `${username}/token:${accesscode}`;
+        }
+
+        try {
+            const response = await axios.get(this.statement, {
+                headers: {
+                    'Authorization': `Basic ${Buffer.from(this.encoded).toString('base64')}`
+                }
+            })
+        } catch (err) {
+            //console.log(err);
+            return err.response;
+        }
     }
 }
 

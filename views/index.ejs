@@ -24,10 +24,7 @@
         <div class="column" style="padding-left: 20%; padding-top: 4em; justify-content: center;">
         <div class="ticketsArea">
             <div class="ticket" style="padding-bottom:20px">
-                <button type="button" class="collapsible">Ticket Subject</button>
-                <div class="content">
-                    <p>Ticket Information</p>
-                </div>
+                
             </div>
         </div>
         <div class="row" style="justify-content:space-between; padding-top:3em">
@@ -39,6 +36,7 @@
 
 
     <script>
+        //grab the tickets that is passed to this page
         var data = <%- tickets %>
 
         //console.log(data);
@@ -47,6 +45,7 @@
             return this.charAt(0).toUpperCase() + this.slice(1);
         }
 
+        //for every ticket that is passed, append the custom div and information to the dedicated tickets area
         for(var i = 0; i < data['tickets'].length; i++){
             console.log(data['tickets'][i])
             $(".ticketsArea").append(
@@ -74,10 +73,9 @@
             );
         }
 
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
+        //jQuery button clicks for when the user clicks the prev and next button
         $( "#prev" ).click(function() {
+             $('#prev').prop('disabled', true);
              $.post('/',
                 {
                     nextUrl: data['links']['prev']
@@ -89,6 +87,7 @@
         });
 
         $( "#next" ).click(function() {
+            $('#next').prop('disabled', true);
             $.post('/',
                 {
                     nextUrl: data['links']['next']
@@ -99,6 +98,11 @@
             )
             
         });
+
+        //this next code section grabs all of the elements that have the "collapsible" class name and
+        //makes it so when you click them, we get a nice animation showing the ticket information
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
 
         for (i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
