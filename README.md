@@ -18,6 +18,7 @@ Zendesk ticket viewer; contacts api, grabs JSON, then outputs it in a list on an
 6. Save both files
 7. Once the two files have been saved, open your IDE terminal, or a regular terminal inside of the root of the project
 8. Perform the `npm install` command to install all of the required dependencies
+9. Additionally, perform an `npm install mocha` command to install mocha (for testing)
 
 ## Execution
 1. To start the application, perform the `npm start` command in the terminal
